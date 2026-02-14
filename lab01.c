@@ -13,6 +13,7 @@ void lexemes(char input[])
             continue;
         }
 
+    
         if(input[i]=='/' && input[i+1]=='/')
         {
             i+=2;
@@ -37,6 +38,19 @@ void lexemes(char input[])
             lexeme[j] = '\0';
             tokenCount++;
             printf("%s\n",lexeme);
+        }
+        else if(input[i]=='+' && input[i+1]=='+' ||
+                input[i]=='-' && input[i+1]=='-' ||
+                input[i]=='=' && input[i+1]=='=' ||
+                input[i]=='!' && input[i+1]=='=' ||
+                input[i]=='>' && input[i+1]=='=' ||
+                input[i]=='<' && input[i+1]=='=' ||
+                input[i]=='&' && input[i+1]=='&' ||
+                input[i]=='|' && input[i+1]=='|')
+        {
+            printf("%c%c\n",input[i],input[i+1]);
+            i+=2;
+            tokenCount++;
         }
         else if (input[i]=='(' || input[i] ==')' || input[i] == '=' || input[i] == '+' || input[i] == '-'
                  || input[i] == '*' || input[i] == '/' || input[i] == ',' || input[i] == ';'
